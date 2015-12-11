@@ -8,6 +8,7 @@ start = ->
     log.info "Connected to #{slack.team.name} as @#{slack.self.name}"
 
   slack.on 'message', (message) ->
+    console.log message
     messageHandler.handle message
 
   slack.on 'error', (err) ->

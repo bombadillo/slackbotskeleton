@@ -1,9 +1,5 @@
-mongo = require './mongoDb'
-
 config =
-  botApiToken: ''
+  botApiToken: 'xoxb-16447599463-hMKxAhwgnXwQinJCwXm1mmdC'
   logFile: __dirname + '/../../log.json'
-  databaseUri: "mongodb://#{mongo.userName}:#{mongo.password}@#{mongo.url}"
-  appHost: ''
 
 module.exports = config
