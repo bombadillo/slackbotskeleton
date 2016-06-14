@@ -1,18 +1,17 @@
-slack = require './services/slackClient'
-messageHandler = require './services/messageHandler'
+slack = require './services/slack/slackClient'
+messager = require './services/slack/messager'
 log = require '../common/services/log'
 
 start = ->
-
   slack.on 'open', ->
-    log.info "Connected to #{slack.team.name} as @#{slack.self.name}"
+    log.info "Connected to slack"
 
   slack.on 'message', (message) ->
     console.log message
-    messageHandler.handle message
+    messager.sendMessage 'got ya', message.channel
 
   slack.on 'error', (err) ->
-    console.error "Error", err
+    log.error "Error", err
 
   slack.login()
 
